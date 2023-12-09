@@ -6,7 +6,7 @@
     <textarea class="feedback-form-control" name="comment" [formControl]="feedbackForm.controls.comment"
         placeholder="Сomment text"></textarea>
     <button class="feedback-form-submit" type="submit"   [disabled]="
-    feedbackForm.touched && (feedbackForm.controls.rating === null || feedbackForm.invalid)
+    !feedbackForm.touched && (feedbackForm.controls.rating === null || feedbackForm.invalid)
   "
      (click)="submitForm()">
         Submit

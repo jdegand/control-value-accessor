@@ -1,4 +1,4 @@
-import { forwardRef } from '@angular/core';
+import { HostListener, forwardRef } from '@angular/core';
 import { Component } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
@@ -19,11 +19,12 @@ export class FeedbackControlComponent implements ControlValueAccessor {
     value!: number;
 
     onChange = (_: any) => {};
-    onTouch = (_:any) => {};
+    onTouch = () => {};
 
     writeValue(input: number): void {
         // phantom null issue
-        if(input === null) return;
+        // if(input === null) return;
+        // with the above check added, the rating will not reset when form does
 
         this.value = input + 1; // index is zero based
     }
@@ -46,12 +47,11 @@ export class FeedbackControlComponent implements ControlValueAccessor {
         return value ? index < value : false;
     }
 
-    /*
+    
     @HostListener("focusout")
     onFocusOut(){
         this.onTouch();
     }
-    */
 
 }
 
