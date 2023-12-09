@@ -1,5 +1,3 @@
-import { EventEmitter, ViewChild } from '@angular/core';
-import { Output } from '@angular/core';
 import { Component } from '@angular/core';
 import { Validators } from '@angular/forms';
 import { FormControl } from '@angular/forms';
@@ -34,9 +32,7 @@ export class FeedbackFormComponent {
     });
 
     submitForm(): void {
-
         console.log(this.feedbackForm.value);
-
         this.feedbackForm.reset();
     }
 }
@@ -59,7 +55,7 @@ export class FeedbackFormComponent {
 
     rating: string | null = null;
 
-    // if rating uses the interface, you won't have to constantly add the rating to new a object with all form values
+    // if rating uses the interface, you won't have to constantly add the rating to a new object with all the form values
     submitForm(): void {
         this.feedBackSubmit.emit({
             ...this.feedbackForm.value,

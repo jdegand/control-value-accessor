@@ -16,10 +16,11 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 export class FeedbackControlComponent implements ControlValueAccessor {
 
+    // if you set the rating with an initial value, you don't have to worry about null & undefined
     value!: number;
 
-    onChange = (_: any) => {};
-    onTouch = () => {};
+    onChange: OnChangeFn<number> = (_: number) => {};
+    onTouch: OnTouchFn = () => {};
 
     writeValue(input: number): void {
         // phantom null issue
@@ -47,7 +48,6 @@ export class FeedbackControlComponent implements ControlValueAccessor {
         return value ? index < value : false;
     }
 
-    
     @HostListener("focusout")
     onFocusOut(){
         this.onTouch();
@@ -55,5 +55,5 @@ export class FeedbackControlComponent implements ControlValueAccessor {
 
 }
 
-//type OnChangeFn<T> = (value: T) => void;
-//type OnTouchFn = () => void;
+type OnChangeFn<T> = (value: T) => void;
+type OnTouchFn = () => void;

@@ -1,14 +1,15 @@
 <form [formGroup]="feedbackForm" class="feedback-form">
     <legend class="feedback-form-title">Tell us what you think</legend>
-    <input class="feedback-form-control" name="name" [formControl]="feedbackForm.controls.name" placeholder="Name" type="text" />
-    <input class="feedback-form-control" name="email" [formControl]="feedbackForm.controls.email" placeholder="Email" type="text" />
+    <input class="feedback-form-control" name="name" [formControl]="feedbackForm.controls.name" placeholder="Name"
+        type="text" />
+    <input class="feedback-form-control" name="email" [formControl]="feedbackForm.controls.email" placeholder="Email"
+        type="text" />
     <app-feedback-control name="rating" [formControl]="feedbackForm.controls.rating"></app-feedback-control>
     <textarea class="feedback-form-control" name="comment" [formControl]="feedbackForm.controls.comment"
         placeholder="Сomment text"></textarea>
-    <button class="feedback-form-submit" type="submit"   [disabled]="
-    !feedbackForm.touched && (feedbackForm.controls.rating === null || feedbackForm.invalid)
-  "
-     (click)="submitForm()">
+    <button class="feedback-form-submit" type="submit" [disabled]="
+    !feedbackForm.touched || feedbackForm.invalid
+  " (click)="submitForm()">
         Submit
     </button>
 </form>

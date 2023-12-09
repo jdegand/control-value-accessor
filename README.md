@@ -10,14 +10,16 @@ In this exercise, you have to rewrite the `FeedbackControlComponent`. It should 
 
 - I wasted a few minutes thinking my onChange was not working. The unimplemented `setDisabledState` error prevented the onChange from working although `writeValue` worked fine.  Interesting to see the order of function calls in Angular.  
 - One of the drawbacks of the previous implementation is that you have to transform the form data into a new object whereas if the component is treated as part of the form, you can just submit the form's value.  
-- The rating component does not reset its value when `writeValue` contains a null check.
 - Apparently, Angular would call `writeValue(null)` before running the first writeValue function call.  I don't know if this still happens or not. 
-- Submit button should be disabled initially.  However, if you start the rating component with a value, the submit button will be enabled.  When you start filling in the other inputs, the submit button becomes disabled again (touched check).  I need to change logic to look at touched property of rating component or possibly initialize the rating component as `null`.    
+- The rating component does not reset its value after a form reset when `writeValue` contains a null check.
+- Submit button should be disabled initially.  `feedbackForm.controls.rating === null` check may be unnecessary after a refactor.  Debatable if you should allow the rating component to be null or not.   
+- There are also Typescript implications if you allow the rating component to be null.  You will have to add `null` to all typings.   
+- There is a warning in the browser console about inputs not having a name property even though the inputs have `[formControl]` bindings.
 
 ## Continued Development
 
-- Logic of the disabling of the submit button
-- Typescript improvements 
+- Implementation choice: allow rating to be null or not?  My implementation doesn't allow rating to be null.
+- Testing   
 
 ## Useful Resources
 
