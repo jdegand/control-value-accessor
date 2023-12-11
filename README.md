@@ -1,6 +1,6 @@
 # Control Value Accessor
 
-Angular Challenges #40 [Control Value Accessor Proposal](https://github.com/tomalaforge/angular-challenges/pull/396/files#diff-f06f5561dac6cb70c16edacf2c7bbfb7079e50ddf00946f696ad2edf2afda1aa) Solution.  
+Angular Challenges #41 [Control Value Accessor Proposal](https://github.com/tomalaforge/angular-challenges/pull/396/files#diff-f06f5561dac6cb70c16edacf2c7bbfb7079e50ddf00946f696ad2edf2afda1aa) Solution.  
 
 ## Directions
 
@@ -26,3 +26,4 @@ In this exercise, you have to rewrite the `FeedbackControlComponent`. It should 
 - [YouTube](https://www.youtube.com/watch?v=KLjZ5ROwCgg) - Control Value Accessor in Angular: Building a Reactive and Reusable Custom Form Input (like a PRO)
 - [YouTube](https://www.youtube.com/watch?v=krw9R77eV44) - How to create custom form components in Angular with ControlValueAccessor
 - [YouTube](https://www.youtube.com/watch?v=ItBRUovkyHI) - Creating custom FormControl(s) in Angular using ControlValueAccessor
+- [Medium](https://medium.com/@stepanenkodmitri/avoiding-common-pitfalls-with-controlvalueaccessors-in-angular-b8b81b366c19) - avoiding common pitfalls with controlvalueaccessors in angular
