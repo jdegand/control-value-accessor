@@ -18,27 +18,28 @@ export class FeedbackControlComponent implements ControlValueAccessor {
 
     // if you set the rating with an initial value, you don't have to worry about null & undefined
     value!: number;
+    //disabled = false;
 
     onChange: OnChangeFn<number> = (_: number) => {};
     onTouch: OnTouchFn = () => {};
 
-    writeValue(input: number): void {
+    writeValue(input: number) {
         // phantom null issue
         // if(input === null) return;
-        // with the above check added, the rating will not reset when form does
+        // with the above check added, the rating will not reset when the form does
 
         this.value = input + 1; // index is zero based
     }
 
-    registerOnChange(fn: any): void {
+    registerOnChange(fn: any) {
         this.onChange = fn;
     }
  
-    registerOnTouched(fn: any): void {
+    registerOnTouched(fn: any) {
         this.onTouch = fn;
     }
 
-    setRating(index: number): void {
+    setRating(index: number) {
         this.value = index + 1;
         this.onChange(this.value);
     }
@@ -48,7 +49,7 @@ export class FeedbackControlComponent implements ControlValueAccessor {
         return value ? index < value : false;
     }
 
-    @HostListener("focusout")
+    @HostListener("focusout") // or blur
     onFocusOut(){
         this.onTouch();
     }
